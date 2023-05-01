@@ -23,7 +23,22 @@ function operate(operation, firstNumber, secondNumber){
     }
 }
 
+function changeDisplay(value){
+    document.querySelector('.screen').textContent = value;
+}
+
+
 let firstNumber;
 let secondNumber;
 let operation;
+let displayValue;
 
+document.querySelectorAll('button').forEach(btn =>{
+    btn.addEventListener('click', () =>{
+        calculator(btn.textContent);
+    });
+  });
+
+  function calculator(buttonPressed){
+
+  }
