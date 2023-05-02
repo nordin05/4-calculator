@@ -17,7 +17,7 @@ function divide(a, b){
 function operate(operation, firstNumber, secondNumber){
     switch(operation){
         case "+": return add(firstNumber, secondNumber);
-        case "-": return subtract(firstNumber, secondNumber);
+        case "−": return subtract(firstNumber, secondNumber);
         case "*": return multiply(firstNumber, secondNumber);
         case "/": return divide(firstNumber, secondNumber);  
     }
@@ -43,7 +43,7 @@ document.querySelectorAll('button').forEach(btn =>{
     displayValue = displayValue + buttonPressed;
     changeDisplay(displayValue);
 
-    if (buttonPressed == "+" || buttonPressed == "-" || buttonPressed == "*" || buttonPressed == "/"){
+    if (buttonPressed == "+" || buttonPressed == "−" || buttonPressed == "*" || buttonPressed == "/"){
         operation = buttonPressed;
         firstNumber = displayValue.replace(buttonPressed,'');
         //displayValue = "";
@@ -65,7 +65,7 @@ document.querySelectorAll('button').forEach(btn =>{
         displayValue = "";
         changeDisplay(displayValue);
     }
-    
+
     console.log(`firstNumber: ${firstNumber} 
 operation: ${operation} 
 secondNumber: ${secondNumber}

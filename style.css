@@ -1,4 +1,9 @@
+html {
+    font-family: "Courier", "Arial";
+}
+
 body {
+    background-color: #898faf;
     display: flex;
     justify-content: center;
 }
@@ -6,34 +11,91 @@ body {
 .calculator {
     display: inline-flex;
     flex-direction: column;
-    background-color: brown;
-    padding: 10px;
+    align-items: center;
+    background-color: rgb(79 82 108);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .container {
     display: inline-flex;
-    background-color: aquamarine;
-    gap: 10px;
+    border-radius: 8px;
+    padding: 5px;
+    gap: 10px;   
+}
+
+.screen-container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    background-color: #c8c5dd;
+    border: 5px solid #908da3;
+    width: 415px;
+    height: 85px;
+
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+
+    margin-bottom: 40px;
+}
+
+.screen {
+    color: #302d44;
+    font-size: 50px;
+    margin-right: 20px;
 }
 
 .main-pad {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(4, 75px);
+    grid-gap: 4px;
 }
 
 .operators {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 }
 
 .operators button {
     width: 100px;
     height: 75px;
+    background-color: #e18f8f;
+    font-size: 35px;
 }
 
-.screen-container {
-    background-color: blueviolet;
-    width: 410px;
-    height: 75px;
+.equals {
+    font-size: 35px;
+}
+
+.clear, .equals {
+    background-color: #c79d91;
+}
+
+button {
+    background-color: #a6aec5;
+    border: 2px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    transition: 0.15s;
+}
+
+button:hover {
+    scale: 1.05;
+    filter: brightness(1.15);
 }
