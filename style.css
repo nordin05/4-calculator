@@ -47,14 +47,17 @@ body {
     border-bottom-right-radius: 2px;
 
     margin-bottom: 40px;
+    margin-left: 10px;
+    overflow: hidden;
 }
 
 .screen {
-    max-width: 360.1px;
-    overflow: hidden;
     color: #302d44;
     font-size: 50px;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    overflow-x: auto;
+    direction: rtl;
 }
 
 .main-pad {

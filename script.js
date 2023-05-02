@@ -26,9 +26,6 @@ function operate(operation, firstNumber, secondNumber){
 }
 
 function changeDisplay(value){
-    if (value.length > 12){
-        console.log("overflow");
-    }
     document.querySelector('.screen').textContent = value;
 }
 
@@ -45,6 +42,8 @@ let firstNumber;
 let secondNumber;
 let operation;
 let displayValue = "";
+
+const allOperators = ["+", "-", "x", "/"];
 
 document.querySelectorAll('button').forEach(btn =>{
     btn.addEventListener('click', () =>{
@@ -69,13 +68,12 @@ function calculator(buttonPressed){
     }
 
     else if (buttonPressed == "=" && firstNumber != undefined && operation != undefined){
-        console.log("CALCULARETE");
         secondNumber = displayValue.replace("=",'');
         secondNumber = secondNumber.replace(operation,'');
         secondNumber = secondNumber.replace(firstNumber,'');
         displayValue = operate(operation, parseFloat(firstNumber), parseFloat(secondNumber));
         changeDisplay(displayValue);
-
+        firstNumber = undefined;
     }
 
     else if (buttonPressed == "Clear"){
