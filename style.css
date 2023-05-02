@@ -50,6 +50,8 @@ body {
 }
 
 .screen {
+    max-width: 360.1px;
+    overflow: hidden;
     color: #302d44;
     font-size: 50px;
     margin-right: 20px;

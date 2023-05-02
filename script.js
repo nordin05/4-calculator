@@ -17,11 +17,11 @@ function divide(a, b){
 function operate(operation, firstNumber, secondNumber){
     switch(operation){
         case "+": return add(firstNumber, secondNumber);
-        case "−": return subtract(firstNumber, secondNumber);
+        case "-": return subtract(firstNumber, secondNumber);
         case "x": return multiply(firstNumber, secondNumber);
-        case "/": 
-        if (secondNumber == 0){return "ERROR"};
-        return divide(firstNumber, secondNumber);
+        case "/": if (secondNumber == 0){
+                    return "ERROR"};
+                  return divide(firstNumber, secondNumber);
     }
 }
 
@@ -52,16 +52,17 @@ document.querySelectorAll('button').forEach(btn =>{
     });
   });
 
-  function calculator(buttonPressed){
+function calculator(buttonPressed){
     if (displayValue == "ERROR"){
         clearAll()
     }
+
     displayValue = displayValue + buttonPressed;
     changeDisplay(displayValue);
 
-    if (buttonPressed == "+" || buttonPressed == "−" || buttonPressed == "x" || buttonPressed == "/"){
+    if (buttonPressed == "+" || buttonPressed == "-" || buttonPressed == "x" || buttonPressed == "/"){
         operation = buttonPressed;
-        firstNumber = displayValue.replace(buttonPressed,'');
+        firstNumber = displayValue.slice(0, -1);
         if (firstNumber == ""){
             firstNumber = 0;
         }
@@ -85,4 +86,4 @@ document.querySelectorAll('button').forEach(btn =>{
 operation: ${operation} 
 secondNumber: ${secondNumber}
 displayValue: ${displayValue}`);
-  }
+}
