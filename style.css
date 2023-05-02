@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator {
+    display: inline-flex;
+    flex-direction: column;
+    background-color: brown;
+    padding: 10px;
+}
+
+.container {
+    display: inline-flex;
+    background-color: aquamarine;
+    gap: 10px;
+}
+
+.main-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(4, 75px);
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+}
+
+.operators button {
+    width: 100px;
+    height: 75px;
+}
+
+.screen-container {
+    background-color: blueviolet;
+    width: 410px;
+    height: 75px;
+}

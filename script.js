@@ -54,7 +54,7 @@ document.querySelectorAll('button').forEach(btn =>{
         secondNumber = displayValue.replace("=",'');
         secondNumber = secondNumber.replace(operation,'');
         secondNumber = secondNumber.replace(firstNumber,'');
-        displayValue = operate(operation, parseInt(firstNumber), parseInt(secondNumber));
+        displayValue = operate(operation, parseFloat(firstNumber), parseFloat(secondNumber));
         changeDisplay(displayValue);
     }
 
@@ -65,6 +65,7 @@ document.querySelectorAll('button').forEach(btn =>{
         displayValue = "";
         changeDisplay(displayValue);
     }
+    
     console.log(`firstNumber: ${firstNumber} 
 operation: ${operation} 
 secondNumber: ${secondNumber}
