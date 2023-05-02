@@ -72,7 +72,7 @@ function calculator(buttonPressed){
         secondNumber = secondNumber.replace(operation,'');
         secondNumber = secondNumber.replace(firstNumber,'');
         displayValue = operate(operation, parseFloat(firstNumber), parseFloat(secondNumber));
-        changeDisplay(displayValue);
+        changeDisplay(displayValue.toFixed(2));
         firstNumber = undefined;
     }
 
