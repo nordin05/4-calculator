@@ -18,13 +18,26 @@ function operate(operation, firstNumber, secondNumber){
     switch(operation){
         case "+": return add(firstNumber, secondNumber);
         case "−": return subtract(firstNumber, secondNumber);
-        case "*": return multiply(firstNumber, secondNumber);
-        case "/": return divide(firstNumber, secondNumber);  
+        case "x": return multiply(firstNumber, secondNumber);
+        case "/": 
+        if (secondNumber == 0){return "ERROR"};
+        return divide(firstNumber, secondNumber);
     }
 }
 
 function changeDisplay(value){
+    if (value.length > 12){
+        console.log("overflow");
+    }
     document.querySelector('.screen').textContent = value;
+}
+
+function clearAll(){
+    firstNumber = null;
+    secondNumber = null;
+    operation = null;
+    displayValue = "";
+    changeDisplay(displayValue);
 }
 
 
@@ -40,30 +53,32 @@ document.querySelectorAll('button').forEach(btn =>{
   });
 
   function calculator(buttonPressed){
+    if (displayValue == "ERROR"){
+        clearAll()
+    }
     displayValue = displayValue + buttonPressed;
     changeDisplay(displayValue);
 
-    if (buttonPressed == "+" || buttonPressed == "−" || buttonPressed == "*" || buttonPressed == "/"){
+    if (buttonPressed == "+" || buttonPressed == "−" || buttonPressed == "x" || buttonPressed == "/"){
         operation = buttonPressed;
         firstNumber = displayValue.replace(buttonPressed,'');
-        //displayValue = "";
-        //changeDisplay(displayValue);
+        if (firstNumber == ""){
+            firstNumber = 0;
+        }
     }
 
-    else if (buttonPressed == "=" && firstNumber != null && operation != null){
+    else if (buttonPressed == "=" && firstNumber != undefined && operation != undefined){
+        console.log("CALCULARETE");
         secondNumber = displayValue.replace("=",'');
         secondNumber = secondNumber.replace(operation,'');
         secondNumber = secondNumber.replace(firstNumber,'');
         displayValue = operate(operation, parseFloat(firstNumber), parseFloat(secondNumber));
         changeDisplay(displayValue);
+
     }
 
     else if (buttonPressed == "Clear"){
-        firstNumber = null;
-        secondNumber = null;
-        operation = null;
-        displayValue = "";
-        changeDisplay(displayValue);
+        clearAll()
     }
 
     console.log(`firstNumber: ${firstNumber} 
